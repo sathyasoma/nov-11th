@@ -1,0 +1,632 @@
+CSS:
+====
+In css we make 3 types of style sheets
+1. in line style sheets
+2. internal style sheets
+3.external style sheets
+
+selector(eg: h1,p): it is element or tag which we want to apply the style.
+
+property: name of style.
+value: value of the property.
+
+
+
+In-line style sheets:
+-----------------------
+*by using of inline style sheets we can applied on one line or tag.
+
+syntax: 
+
+       <selector style="property:value;property:value">
+	   
+eg:
+---
+         <p style="color:blue;background-color:green"> YOUR TEXT</P>
+		 
+==>here i applied styles to  paragraph color, background-color.
+<html>
+<title> WELCOME TO CSS TUTORIAL</title>
+<body>
+
+<h1>WELCOME TO CSS<h1>
+
+<p style="color:blue; background-color:green"> Here we are goint to learn css. it is the extension to the HTML. here we are writting tags 
+compare to html these tags rae different</p>
+
+
+</body>
+
+</html>
+
+
+
+Internal style sheets:
+---------------------
+these style sheets are applied one web page.
+
+syntax:
+
+        <head>
+		
+		           <style type="text/css">
+				  
+				       selecto{
+				             property:value;
+				             property:value;
+				              }
+				  </style>
+		</head>
+
+
+eg:
+--
+
+<html>
+
+<title> WELCOME TO CSS TUTORIAL</title>
+<style type="text/css">
+ h2{
+                color:green;
+        background-color:blue;
+      
+}
+</style>
+
+<body>
+
+<h1>WELCOME TO CSS<h1>
+
+<h2> CSS FOR BEGGINERS</h2>
+
+<p> Here we are goint to learn css. it is the extension to the HTML. here we are writting tags 
+compare to html these tags rae different</p>
+
+<h2> TYPES OF CSS SHEETS</h2>
+</body>
+
+</html>
+
+
+==> In the internal style sheets syntax can be write in the head, we no need to write each tags,
+if want to write three or more tags at time we use internal style sheets.
+
+
+
+
+External style sheets:
+-----------------------
+these styles are used one or more web pages.
+
+
+1.create your HTML file
+2. create a css file extension .css
+3. write code in that css file
+4. link our css file with our html files
+
+-> write one css file save as in all files => for which html files you want attach to the css file
+in those file you write one link tag<link rel="stylesheet" href=filename.css>
+=>in css file we write selector. this selector is works in all html files which are linked
+with css file.
+
+
+
+
+SELECTORS:
+-----------
+TYPES OF SELECTORS:
+----------------
+1.Simple selector
+2.Combinator selector
+3. pseudo class selectors
+4.pseudo element selectors
+5.Attribute selctors
+
+SIMPLE SELECTORS:
+------------------
+1.tag based selectors
+2. id basedd selctors (#)
+3. class based selectors(.)
+
+Tag based selectors:
+---------------------
+syntax:
+          h1{
+		     color:blue;
+		  }
+		  
+eg::
+
+<html>
+
+<title> WELCOME TO CSS TUTORIAL</title>
+<style type="text/css">
+ h2{
+                color:green;
+        background-color:yellow;
+      
+}
+</style>
+
+<body>
+
+<h1>WELCOME TO CSS<h1>
+
+<h2> CSS FOR BEGGINERS</h2>
+
+<p> Here we are goint to learn css. it is the extension to the HTML. here we are writting tags 
+compare to html these tags rae different</p>
+
+<h2> TYPES OF CSS SHEETS</h2>
+</body>
+
+</html>
+
+
+
+Id based slectors:
+=================
+suppose in a code we have two or more same selctors we applied styles of that selectors by
+ using tag based, but in the id based we can applied style on specified selectors by using id's.
+ 
+ syntax:
+      id should be unique
+	         
+			  #two{
+			      color:blue;
+			  }
+	  
+	        
+          <h1 id="one">WELCOME TO HTML<h1>
+
+           <h1 id= "two">WELCOME TO CSS<h1>
+
+           <h1 id="three">WELCOME TO JAVA SCRIPT<h1>
+		   
+		   
+EG:
+--
+
+<html>
+
+<title> WELCOME TO CSS TUTORIAL</title>
+<style type="text/css">
+
+     #two{
+                color:red;
+       
+      
+}
+</style>
+
+<body>
+
+<h1>WELCOME TO CSS<h1>
+
+<h2 id="one"> CSS FOR BEGGINERS</h2>
+
+<p> Here we are goint to learn css. it is the extension to the HTML. here we are writting tags 
+compare to html these tags rae different</p>
+
+<h2 id="two"> TYPES OF CSS SHEETS</h2>
+
+<h2 id= "three"> LEARN JAVA SCRIPT</h2>
+</body>
+
+</html>
+
+
+class based selectors:
+=========================
+here we divide selctors different class based according to our requiremnt we applied the styles.
+
+syntax:
+-----
+           .first{
+		        color:blue;
+		   }
+		   
+		   
+		   
+eg:
+---
+
+<html>
+
+<title> WELCOME TO CSS TUTORIAL</title>
+<style type="text/css">
+
+     .first{
+                color:blue;
+       
+      
+}
+</style>
+
+<body>
+
+<h1 class="first">WELCOME TO CSS<h1>
+
+<h2 class="second"> CSS FOR BEGGINERS</h2>
+
+<p class="first"> Here we are goint to learn css. it is the extension to the HTML. here we are writting tags 
+compare to html these tags rae different</p>
+
+<h2 class="third"> TYPES OF CSS SHEETS</h2>
+<p class="second"> Here we are goint to learn css. it is the extension to the HTML. here we are writting tags 
+compare to html these tags rae different</p>
+
+<h1 class="first">WELCOME TO HTML<h1>
+
+<h2 class="third"> LEARN JAVA SCRIPT</h2>
+</body>
+
+</html>
+
+=> in the selector place we given which type of class we want.
+
+
+COMBINATOR SELECTORS:
+--------------------
+1.Desendent selectors(space)
+	
+2.Child selectors(>)
+
+3.Adjacent selectors(+)
+
+4.General selectors		(~)   
+
+
+Desendent selectors: (space)
+--------------------
+in this html file we use on tag i.e div tag <div> ...........</div> it is used for divisions 
+whatever and how much you want divide your code seperatly.
+
+synatx: i want change the color in the which dat is presenting in the "div"
+             
+			 div p{
+			 
+			   color:blue;
+			 }
+			 
+			 
+			 
+eg:
+---
+
+<html>
+
+<title> WELCOME TO CSS TUTORIAL</title>
+<style type="text/css">
+
+     div p{
+                color:blue;
+       background-color:yellow;
+      
+}
+</style>
+
+<body>
+
+<h1>WELCOME TO desendent selectors<h1>
+
+<h2> CSS FOR BEGGINERS</h2>
+
+<div>
+
+<p> Here we are goint to learn css. it is the extension to the HTML. here we are writting tags 
+compare to html these tags rae different</p>
+
+<h2> TYPES OF CSS SHEETS</h2>
+<p> Here we are goint to learn css. it is the extension to the HTML. here we are writting tags 
+compare to html these tags rae different</p>
+
+<h1>WELCOME TO HTML<h1>
+
+</div>
+
+<h2> LEARN JAVA SCRIPT</h2>
+</body>
+
+</html>
+
+CHILD TAG:(>)
+----------
+In the child tag only applicable for child, but not for child child.
+
+syntax:
+
+               div > p{
+			               color:green;
+			   }
+
+eg:
+--
+
+<html>
+
+<title> WELCOME TO CSS TUTORIAL</title>
+<style type="text/css">
+
+     div > p {
+                color:RED;
+       background-color:yellow;
+      
+}
+</style>
+
+<body>
+
+<h1>WELCOME TO CHILD selectors<h1>
+
+<h2> CSS FOR BEGGINERS</h2>
+
+<div>
+
+<p> Here we are goint to learn css. it is the extension to the HTML. here we are writting tags 
+compare to html these tags rae different</p>
+
+<h2> TYPES OF CSS SHEETS</h2>
+<p> Here we are goint to learn css. it is the extension to the HTML. here we are writting tags 
+compare to html these tags rae different</p>
+
+<h1>WELCOME TO HTML<h1>
+      <p> here we us child selctors only not child child</p>
+
+</div>
+
+<h2> LEARN JAVA SCRIPT</h2>
+</body>
+
+</html>
+
+
+Adjacent sibling selector: (+)
+-------------------
+
+the section which we devide in code like( <div>....</div>     ) after the div section 
+immediate tag will be selected. for adjacent selector. at the same time the selector should be 
+paragraph.
+
+eg:
+
+<html>
+
+<title> WELCOME TO CSS TUTORIAL</title>
+<style type="text/css">
+
+     div + p {
+                color:RED;
+       background-color:yellow;
+      
+}
+</style>
+
+<body>
+
+<h1>WELCOME TO CHILD selectors<h1>
+
+<h2> CSS FOR BEGGINERS</h2>
+
+<div>
+
+<p> Here we are goint to learn css. it is the extension to the HTML.
+ here we are writting tags 
+compare to html these tags rae different</p>
+
+
+<h2> TYPES OF CSS SHEETS</h2>
+
+</div>
+<p> Here we are goint to learn css. it is the extension to the HTML. 
+here we are writting tags 
+compare to html these tags rae different</p>
+
+<h1>WELCOME TO HTML<h1>
+      <p> here we us child selctors only not child child</p>
+
+
+
+<h2> LEARN JAVA SCRIPT</h2>
+</body>
+
+</html>
+
+
+
+General sibling selector:(~):
+==============================
+In the case of general siblig how many pragraphs are there after section(div tag) those 
+paragraph will be selected. only child, not child to child.
+
+eg:
+
+<html>
+
+<title> WELCOME TO CSS TUTORIAL</title>
+<style type="text/css">
+
+     div ~ p {
+                color:RED;
+       background-color:yellow;
+      
+}
+</style>
+
+<body>
+
+<h1>WELCOME TO CHILD selectors<h1>
+
+<h2> CSS FOR BEGGINERS</h2>
+
+<div>
+
+<p> Here we are goint to learn css. it is the extension to the HTML.
+ here we are writting tags 
+compare to html these tags rae different</p>
+
+
+<h2> TYPES OF CSS SHEETS</h2>
+
+</div>
+<p> Here we are goint to learn css. it is the extension to the HTML. 
+here we are writting tags 
+compare to html these tags rae different</p>
+
+<h1>WELCOME TO HTML<h1>
+      <p> here we us child selctors only not child child</p>
+
+<h2> LEARN JAVA SCRIPT</h2>
+<p> In general sibligs mostly styles can applicable after the diviosion tag</p>
+</body>
+
+</html>
+
+
+
+PSEUDO CLASS SELECTORS: (:)
+
+-----------------------
+if we want see special status in the element we choose psuedo selectors.
+
+given list if i want give style to the first that style applied to the first list 
+
+syntax:
+
+ li:first-child{
+           color:blue;
+ }
+ 
+ => if i want to nth list(middle or last but one)
+ 
+ syntax:
+ 
+   li:nth-child(3){
+          color:red;
+   }
+
+eg:
+
+<html>
+
+<title> pseu class selctors</title>
+<style type="text/css">
+
+     li:first-child {
+                color:RED;
+       background-color:yellow;   
+}
+</style>
+
+<body>
+    <h1>PSEUDO CLASS SELECTORS</h1>
+   <ul>
+      these are unoredrd list
+         <li>HTML</li>
+         <li>CSS</li>
+         <li>JAVASCRIPT</li>
+        <li>JAVA CPULSPLUS</li>
+   </ul>
+
+   <ol>
+      these orderd list
+           <li>java</li>
+           <li>python</li>
+           <li>.net</li>
+   </ol>
+</body>
+
+</html>
+
+
+pseudo element selector: (::)
+------------------------
+if you want change single element(letter,word,line) in any tag we use pseudo element selectro.
+
+ eg:
+ <html>
+
+<title> pseu class selctors</title>
+<style type="text/css">
+
+    h1::first-line{
+                color: brown;
+     }
+    
+</style>
+
+<body>
+    <h1>PSEUDO CLASS SELECTORS</h1>
+   <ul>
+      these are unoredrd list
+         <li>HTML</li>
+         <li>CSS</li>
+         <li>JAVASCRIPT</li>
+        <li>JAVA CPULSPLUS</li>
+   </ul>
+
+   <ol>
+      these orderd list
+           <li>java</li>
+           <li>python</li>
+           <li>.net</li>
+   </ol>
+<a href="#">learn HTML</a><br>
+<a href="#">CSS</a><br>
+<a href="#">JAVA LEARN</a><br>
+</body>
+
+</html>
+
+Attribute selectors: 
+===================
+syntax:
+
+font[size]{
+          color:brown;
+}
+
+<p><font size="6" color="blue">...........................</font></p>
+in this selectors when we use attribute in tags,that tag contains some text that text 
+will be changed the color.
+
+
+eg:
+<html>
+
+<title> pseu class selctors</title>
+<style type="text/css">
+
+    font[color]{
+                color: brown;
+           background-color:yellow;
+     }
+    
+</style>
+
+<body>
+    <h1>PSEUDO CLASS SELECTORS</h1>
+<p> <font color="green"> Here we are going to learn pseudo element selectors.<br>In this this selectors
+we can add styles to the letter, word, sentence, or line</font></p>
+   <ul>
+      these are unoredrd list
+         <li>HTML</li>
+         <li>CSS</li>
+         <li>JAVASCRIPT</li>
+        <li>JAVA CPULSPLUS</li>
+   </ul>
+
+   <ol>
+      these orderd list
+           <li>java</li>
+           <li>python</li>
+           <li>.net</li>
+   </ol>
+<a href="#">learn HTML</a><br>
+<a href="#">CSS</a><br>
+<a href="#">JAVA LEARN</a><br>
+</body>
+
+</html>
+
+
