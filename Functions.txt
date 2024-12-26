@@ -1,0 +1,413 @@
+
+
+===============================Functions=====================
+
+
+Function Declaration:
+----------------------------
+To create a function we can use a function declaration.
+
+function showMessage() {
+  alert( 'Hello everyone!' );
+}
+
+
+*The function keyword goes first, then goes the name of the function,
+                            then a list of parameters between the parentheses.
+*finally the code of the function, also named “the function body”, between curly braces.
+
+eg:
+---
+
+function name(parameter1, parameter2, ... parameterN) {
+ // body
+}
+
+eg:
+-----
+
+function showMessage() {
+  alert( 'Hello everyone!' );
+}
+
+showMessage();
+showMessage();
+
+
+**The call showMessage() executes the code of the function. Here we will see the message two times.
+
+
+**one of the main purposes of functions: to avoid code duplication.
+
+Local variables:
+----------------
+
+A variable declared inside a function is only visible inside that function.
+
+For example:
+-----------
+
+function showMessage() {
+  let message = "Hello, I'm JavaScript!"; // local variable
+
+  alert( message );
+}
+
+showMessage(); // Hello, I'm JavaScript!
+
+alert( message ); // <-- Error! The variable is local to the function
+
+Outer variables:
+-------------------
+A function can access an outer variable as well, for example:
+
+let userName = 'sathya';
+
+function showMessage() {
+  let message = 'Hello, ' + userName;
+  alert(message);
+}
+
+showMessage(); // Hello, sathya
+
+
+ex:
+---
+
+
+let userName = 'soma';
+
+function showMessage() {
+  userName = "sathya"; // (1) changed the outer variable
+
+  let message = 'Hello, ' + userName;
+  alert(message);
+}
+
+alert( userName ); // sathya before the function call
+
+showMessage();
+
+alert( userName ); // soma, the value was modified by the function
+
+
+*The outer variable is only used if there’s no local one.
+
+**If a same-named variable is declared inside the function then it shadows the outer one. 
+
+For instance, in the code below the function uses the local userName. 
+The outer one is ignored:
+
+let userName = 'sathya';
+
+function showMessage() {
+  let userName = "soma"; // declare a local variable
+
+  let message = 'Hello, ' + userName; // soma
+  alert(message);
+}
+
+// the function will create and use its own userName
+showMessage();
+
+alert( userName ); // sathya, unchanged, the function did not access the outer variable
+
+
+
+**We can pass arbitrary data to functions using parameters.
+
+ex:
+---
+
+function showMessage(from, text) { // parameters: from, text
+  alert(from + ': ' + text);
+}
+
+showMessage('sathya', 'Hello!'); // sathya: Hello! (*)
+showMessage('sathya', "What's up?"); // sathya: What's up? (**)
+
+
+Default values:
+==============
+
+ex:
+----
+
+function showMessage(from, text = "no text given") {
+  alert( from + ": " + text );
+}
+
+showMessage("sathya"); // sathya: no text given
+
+
+Returning a value:
+--------------------
+*A function can return a value back into the calling code as the result.
+
+*The simplest example would be a function that sums two values:
+
+function sum(a, b) {
+  return a + b;
+}
+
+let result = sum(1, 2);
+alert( result ); // 3
+
+ex:
+---
+
+function checkAge(age) {
+  if (age >= 18) {
+    return true;
+  } else {
+    return confirm('Do you have permission from your parents?');
+  }
+}
+
+let age = prompt('How old are you?', 18);
+
+if ( checkAge(age) ) {
+  alert( 'Access granted' );
+} else {
+  alert( 'Access denied' );
+}
+
+Function expressions:
+-----------------------
+
+The syntax that we used before is called a Function Declaration:
+-------------
+
+function sayHi() {
+  alert( "Hello" );
+}
+
+
+There is another syntax for creating a function that is called a Function Expression:
+------------------------------
+
+It allows us to create a new function in the middle of any expression.
+
+For example:
+-----------
+
+let sayHi = function() {
+  alert( "Hello" );
+};
+
+=>Here we can see a variable sayHi getting a value, the new function, created as function() { alert("Hello"); }.
+
+ex:
+---
+let age = prompt("What is your age?", 18);
+
+// conditionally declare a function
+if (age < 18) {
+
+  function welcome() {
+    alert("Hello!");
+  }
+
+} else {
+
+  function welcome() {
+    alert("Greetings!");
+  }
+
+}
+
+Arrow functions:
+---------------
+
+There’s another very simple and concise syntax for creating functions,
+                             that’s often better than Function Expressions.
+							 
+							 
+ex:
+--
+
+let func = (arg1, arg2, ..., argN) => expression;
+
+ex:
+--
+
+let sum = (a, b) => a + b;
+
+/* This arrow function is a shorter form of:
+
+let sum = function(a, b) {
+  return a + b;
+};
+*/
+
+alert( sum(1, 2) ); // 3
+
+
+*As you can see, (a, b) => a + b means a function that accepts two arguments named a and b. 
+Upon the execution, it evaluates the expression a + b and returns the result.
+
+*If we have only one argument, then parentheses around parameters can be omitted, making that even shorter.
+
+
+ex:
+--
+
+let double = n => n * 2;
+// roughly the same as: let double = function(n) { return n * 2 }
+
+alert( double(3) ); // 6
+
+
+*If there are no arguments, parentheses are empty, but they must be present:
+
+ex:
+---
+let sayHi = () => alert("Hello!");
+
+sayHi();
+
+
+ex:
+----
+
+let age = prompt("What is your age?", 18);
+
+let welcome = (age < 18) ?
+  () => alert('Hello!') :
+  () => alert("Greetings!");
+
+welcome();
+
+
+Multiline arrow functions:
+----------------------------
+
+**The arrow functions that we’ve seen so far were very simple. 
+        *They took arguments from the left of =>, 
+     evaluated and returned the right-side expression with them.
+
+ex:
+--
+
+let sum = (a, b) => {  // the curly brace opens a multiline function
+  let result = a + b;
+  return result; // if we use curly braces, then we need an explicit "return"
+};
+
+alert( sum(1, 2) ); // 3
+
+
+1. Function Declaration
+Use Case: When you need a named function that will be reused multiple times and possibly invoked before its definition (due to hoisting).
+Examples:
+Validation functions in forms (e.g., email, password validation).
+General utility functions (e.g., calculating totals, formatting dates).
+Scenario: You need to perform a task like form validation multiple times throughout an application, so having a reusable named function makes sense.
+2. Function Expression
+Use Case: When you need a function assigned to a variable, especially useful for defining functions conditionally or in callbacks.
+Examples:
+Assigning a function to an event handler (e.g., button.onclick = function() { ... }).
+Anonymous functions that don’t need to be called elsewhere in the code.
+Scenario: Defining a function only within a certain scope or passing it as a value to another function.
+3. Arrow Functions
+Use Case: Best for short functions, especially when using methods like map, filter, and reduce. Ideal for preserving the this context inside methods.
+Examples:
+Inside array methods (map, filter, reduce).
+Short event handlers (e.g., document.getElementById('btn').onclick = () => console.log('clicked')).
+Scenario: When working with array transformations or defining simple inline callback functions without worrying about the this context.
+4. Immediately Invoked Function Expression (IIFE)
+Use Case: When you need to run a function only once immediately and avoid polluting the global namespace.
+Examples:
+Initializing values or configurations at the beginning of a script.
+Creating private variables or scope for a module.
+Scenario: When loading a script and needing to set up configurations without keeping those variables accessible globally.
+5. Constructor Functions
+Use Case: When you need to create multiple instances of objects with similar properties and methods. It acts like a blueprint for objects.
+Examples:
+Creating objects in a shopping cart system (e.g., Product, CartItem).
+User-defined data structures (e.g., creating Person or Car objects).
+Scenario: When you are building object-oriented applications and need to create multiple instances of the same type, like users, products, or shapes.
+6. Higher-Order Functions
+Use Case: When you need a function that takes another function as an argument or returns a function, often useful for composing complex operations or workflows.
+Examples:
+Functions that handle event listeners and can be customized (e.g., addEventListener).
+Functions that manipulate arrays or perform asynchronous operations (e.g., setTimeout, setInterval).
+Scenario: When you want to abstract out certain operations, like adding a discount in an e-commerce app, or customizing behavior dynamically using function arguments.
+7. Recursive Functions
+Use Case: When solving problems that can be broken down into smaller instances of the same problem, like traversing trees, calculating factorials, or navigating nested structures.
+Examples:
+Tree traversal (e.g., DOM manipulation or folder structures).
+Mathematical computations like factorial or Fibonacci sequence.
+Scenario: When dealing with tasks that require breaking down problems into smaller, similar sub-problems, like exploring directory structures or solving algorithmic challenges.
+. Immediately Invoked Function Expression (IIFE)
+An IIFE is a function that is executed immediately after it is defined. It helps in avoiding global scope pollution.
+
+Example:
+
+(function() {
+  console.log("This is an IIFE");
+})();
+Real-time Example: You can use an IIFE to initialize values when a page loads:
+
+(function() {
+  let userSession = "active";
+  console.log("User session initialized:", userSession);
+})();
+5. Constructor Functions
+Constructor functions are used to create objects. When called with the new keyword, they instantiate a new object.
+
+Example:
+
+function Person(name, age) {
+  this.name = name;
+  this.age = age;
+}
+const person1 = new Person("John", 30);
+console.log(person1.name); // Output: John
+Real-time Example: In a shopping cart system, you can create product objects using constructor functions:
+
+function Product(name, price) {
+  this.name = name;
+  this.price = price;
+}
+const product1 = new Product("Laptop", 1500);
+console.log(product1); // Output: Product {name: "Laptop", price: 1500}
+6. Higher-Order Functions
+Higher-order functions take other functions as arguments or return functions.
+
+Example:
+
+function greetUser(greetFunction, name) {
+  return greetFunction(name);
+}
+const greetMorning = name => "Good Morning, " + name;
+console.log(greetUser(greetMorning, "Alice")); // Output: Good Morning, Alice
+Real-time Example: You can use higher-order functions for applying discounts in an e-commerce app:
+
+function applyDiscount(discountFunction, price) {
+  return discountFunction(price);
+}
+const tenPercentOff = price => price * 0.9;
+console.log(applyDiscount(tenPercentOff, 100)); // Output: 90
+7. Recursive Functions
+A recursive function calls itself until a base condition is met.
+
+Example:
+
+function factorial(n) {
+  if (n === 0) return 1;
+  return n * factorial(n - 1);
+}
+console.log(factorial(5)); // Output: 120
+Real-time Example: You can use recursion to traverse a nested file structure in a file system:
+
+
+function listFiles(folder) {
+  folder.files.forEach(file => {
+    if (file.isDirectory) {
+      listFiles(file);
+    } else {
+      console.log(file.name);
+    }
+  });
+}
